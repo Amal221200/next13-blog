@@ -1,0 +1,53 @@
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-top: 35px;
+    margin-bottom: 68px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.imgContainer {
+    flex: 1;
+    position: relative;
+    aspect-ratio: 1 /1;
+}
+
+.image {
+    border-radius: 50%;
+    border: 3px solid lightgray;
+}
+
+.textContainer {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.category {
+    width: max-content;
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+
+.postTitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--softTextColor);
+}
+
+.detail {
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.date {
+    color: gray;
+}
