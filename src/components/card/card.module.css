@@ -38,3 +38,9 @@
     border-bottom: 1px solid crimson;
     padding: 2px 0;
 }
+
+@media screen and (max-width: 1280px){
+    .imgContainer{
+        display: none;
+    }
+}

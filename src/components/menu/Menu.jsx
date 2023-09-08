@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "./menu.module.css";
-import Image from "next/image";
 import { capitalize as capitalizeWord } from "../../../lib";
 import { backgroundColors } from "../../../lib/data";
 import MenuPost from "../menuPost/MenuPost";
