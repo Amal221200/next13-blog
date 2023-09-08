@@ -1,0 +1,45 @@
+.link {
+    cursor: pointer;
+}
+
+.burger {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 16px;
+    width: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--textColor);
+}
+
+.responsiveMenu {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 100px);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    font-size: 36px;
+}
+
+
+@media screen and (max-width: 640px){
+    .burger {
+        display: flex;
+    }
+
+    .link {
+        display: none;
+    }
+}
