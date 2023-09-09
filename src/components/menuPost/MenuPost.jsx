@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styles from "./menuPost.module.css";
 import Image from "next/image";
-import { backgroundColors } from "../../../lib/data";
-import { capitalize as capitalizeWord } from "../../../lib";
+import { backgroundColors } from "../../utils/data";
+import { capitalize as capitalizeWord } from "../../utils";
 
 const MenuPosts = ({ withImage, category }) => {
     return (

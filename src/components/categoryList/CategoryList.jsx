@@ -1,8 +1,8 @@
 import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { capitalize as capitalizeWord } from "../../../lib";
-import { categoryList } from "../../../lib/data";
+import { capitalize as capitalizeWord } from "../../utils";
+import { categoryList } from "../../utils/data";
 
 
 

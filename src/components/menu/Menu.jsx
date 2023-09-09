@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./menu.module.css";
-import { capitalize as capitalizeWord } from "../../../lib";
-import { backgroundColors } from "../../../lib/data";
+import { capitalize as capitalizeWord } from "../../utils";
+import { backgroundColors } from "../../utils/data";
 import MenuPost from "../menuPost/MenuPost";
 
 const Menu = () => {
