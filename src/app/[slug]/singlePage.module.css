@@ -77,4 +77,8 @@
     .title {
         font-size: 32px;
     }
+
+    .description p {
+        font-size: 18px;
+    }
 }
