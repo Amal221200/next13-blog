@@ -1,10 +1,11 @@
 import Link from "next/link";
 import styles from "./menu.module.css";
-import { capitalize as capitalizeWord } from "../../utils";
-import { backgroundColors } from "../../utils/data";
+import { capitalizeWord, getCategories } from "../../utils";
+import { categoryMenuBg } from "../../utils/data";
 import MenuPost from "../menuPost/MenuPost";
 
-const Menu = () => {
+const Menu = async () => {
+  const categories = await getCategories()
   return (
     <div className={styles.container}>
       <>
@@ -23,9 +24,9 @@ const Menu = () => {
         <h3 className={styles.title}>Categories</h3>
         <div className={styles.categories}>
           {
-            Object.keys(backgroundColors).map((category, index) => (
-              <Link key={index} href={`/blog?category=${category}`} style={{ background: backgroundColors[category] }} className={`${styles.category}`}>
-                {capitalizeWord(category)}
+            categories.map((category, index) => (
+              <Link key={index} href={`/blog?category=${category.title}`} style={{ background: categoryMenuBg[category.title] }} className={`${styles.category}`}>
+                {capitalizeWord(category.title)}
               </Link>
             ))
           }

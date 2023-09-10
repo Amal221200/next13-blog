@@ -1,7 +1,8 @@
 "use client";
+import React from "react";
 import { SessionProvider } from "next-auth/react"
 
-const AuthProvider = ({ children }) => {
+const AuthProvider: React.FC<BaseFCProps> = ({ children }) => {
     return (
         <SessionProvider>
             {children}

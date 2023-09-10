@@ -1,10 +1,17 @@
 import Link from "next/link";
 import styles from "./menuPost.module.css";
 import Image from "next/image";
-import { backgroundColors } from "../../utils/data";
-import { capitalize as capitalizeWord } from "../../utils";
+import { categoryMenuBg } from "../../utils/data";
+import { capitalizeWord, getCategories } from "../../utils";
+import React from "react";
 
-const MenuPosts = ({ withImage, category }) => {
+interface MenuPostsProps {
+    withImage?: boolean,
+    category: string
+}
+
+const MenuPosts: React.FC<MenuPostsProps> = ({ withImage, category }) => {
+
     return (
         <div className={styles.items}>
             <Link href="/" className={styles.item}>
@@ -14,7 +21,7 @@ const MenuPosts = ({ withImage, category }) => {
                     </div>
                 }
                 <div className={styles.textContainer}>
-                    <span className={`${styles.category}`} style={{ background: backgroundColors[category] }}>{capitalizeWord(category)}</span>
+                    <span className={`${styles.category}`} style={{ background: categoryMenuBg[category] }}>{capitalizeWord(category)}</span>
                     <h3 className={styles.postTitle}>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     </h3>
