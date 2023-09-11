@@ -2,7 +2,7 @@ import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { capitalizeWord, getCategories } from "../../utils";
-import { categoryListBg } from "../../utils/data";
+import { categoryListBg } from "../../utils/constants";
 
 const CategoryList = async () => {
   const categories: CategoryType[] = await getCategories()

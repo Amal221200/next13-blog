@@ -1,6 +1,6 @@
 import prisma from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
-import { POST_PER_PAGE } from "@/utils/data";
+import { POST_PER_PAGE } from "@/utils/constants";
 
 export const GET = async (request: NextRequest) => {
     const { searchParams } = new URL(request.url);

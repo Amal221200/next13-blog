@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styles from "./menuPost.module.css";
 import Image from "next/image";
-import { categoryMenuBg } from "../../utils/data";
-import { capitalizeWord, getCategories } from "../../utils";
+import { categoryMenuBg } from "../../utils/constants";
+import { capitalizeWord } from "../../utils";
 import React from "react";
 
 interface MenuPostsProps {

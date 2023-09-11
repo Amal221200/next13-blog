@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./menu.module.css";
 import { capitalizeWord, getCategories } from "../../utils";
-import { categoryMenuBg } from "../../utils/data";
+import { categoryMenuBg } from "../../utils/constants";
 import MenuPost from "../menuPost/MenuPost";
 
 const Menu = async () => {

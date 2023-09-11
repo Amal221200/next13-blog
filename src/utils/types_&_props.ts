@@ -13,7 +13,7 @@ interface ServerComponentsProps {
 }
 
 interface HomePageProps extends ServerComponentsProps {
-    searchParams: { page: string | undefined }
+    searchParams: { page: string , category: string }
 
 }
 

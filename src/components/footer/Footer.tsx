@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./footer.module.css";
 import Link from "next/link";
+import { FooterLinks } from "@/utils/constants";
 
 const Footer = () => {
   return (
@@ -21,27 +22,16 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.links}>
-        <div className={styles.lists}>
-          <span className={styles.listTitle}>Links</span>
-          <Link href="/">Homepage</Link>
-          <Link href="/">Blog</Link>
-          <Link href="/">About</Link>
-          <Link href="/">Contact</Link>
-        </div>
-        <div className={styles.lists}>
-          <span className={styles.listTitle}>Tags</span>
-          <Link href="/">Style</Link>
-          <Link href="/">Fashion</Link>
-          <Link href="/">Coding</Link>
-          <Link href="/">Travel</Link>
-        </div>
-        <div className={styles.lists}>
-          <span className={styles.listTitle}>Social</span>
-          <Link href="/">Facebook</Link>
-          <Link href="/">Instagram</Link>
-          <Link href="/">Tiktok</Link>
-          <Link href="/">Youtube</Link>
-        </div>
+        {
+          FooterLinks.map((FooterLink, index) => (
+            <div className={styles.lists} key={index}>
+              <span className={styles.listTitle}>{FooterLink.name}</span>
+              {FooterLink.links.map((link, index) => (
+                <Link href={link.href} key={index}>{link.text}</Link>
+              ))}
+            </div>
+          ))
+        }
       </div>
     </footer>
   )

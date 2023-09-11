@@ -3,7 +3,7 @@ import { getPosts } from "@/utils";
 import Card from "../card/Card";
 import Pagination from "../pagination/Pagination";
 import React from "react";
-import { POST_PER_PAGE } from "@/utils/data";
+import { POST_PER_PAGE } from "@/utils/constants";
 
 const CardList: React.FC<CardList> = async ({ page }) => {
   const { posts, count } = await getPosts(page)
