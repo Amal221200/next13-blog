@@ -1,25 +1,27 @@
-datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/d/migrate-shadow
-}
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
 }
 
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id @default(cuid()) @map("_id")
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -28,7 +30,7 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(cuid()) @map("_id")
   sessionToken String   @unique
   userId       String
   expires      DateTime
@@ -36,19 +38,19 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id @default(cuid()) @map("_id")
   name          String?
   email         String    @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
-  posts         Post[]
-  comments      Comment[]
+  Post          Post[]
+  Comment       Comment[]
 }
 
 model VerificationToken {
-  identifier String
+  identifier String   @id @map("_id")
   token      String   @unique
   expires    DateTime
 
@@ -56,34 +58,34 @@ model VerificationToken {
 }
 
 model Category {
-  id    String @id @default(cuid())
-  slug  String @unique
+  id    String  @id @default(cuid()) @map("_id")
+  slug  String  @unique
   title String
-  img   String
+  img   String?
   Posts Post[]
 }
 
 model Post {
-  id        String    @id @default(cuid())
+  id        String    @id @default(cuid()) @map("_id")
+  createdAt DateTime  @default(now())
   slug      String    @unique
   title     String
   desc      String
   img       String?
   views     Int       @default(0)
   catSlug   String
-  userEmail String
-  createdAt DateTime  @default(now())
   cat       Category  @relation(fields: [catSlug], references: [slug])
+  userEmail String
   user      User      @relation(fields: [userEmail], references: [email])
   comments  Comment[]
 }
 
 model Comment {
-  id        String   @id @default(cuid())
-  views     Int      @default(0)
-  userEmail String
-  postSlug  String
+  id        String   @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
+  desc      String
+  userEmail String
   user      User     @relation(fields: [userEmail], references: [email])
+  postSlug  String
   post      Post     @relation(fields: [postSlug], references: [slug])
 }

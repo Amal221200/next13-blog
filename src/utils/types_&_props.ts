@@ -7,6 +7,23 @@ interface BaseFCProps {
     children: React.ReactNode
 }
 
+interface ServerComponentsProps {
+    params: { slug: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+
+interface HomePageProps extends ServerComponentsProps {
+    searchParams: { page: string | undefined }
+
+}
+
+interface CardList {
+    page: number
+}
+interface Pagination {
+    page: number
+}
+
 interface CategoryType {
     title: string,
     id: string,

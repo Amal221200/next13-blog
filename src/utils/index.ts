@@ -15,3 +15,17 @@ export const getCategories = async (): Promise<CategoryType[]> => {
 
     return await res.json();
 }
+
+export const getPosts = async (page?: number): Promise<{ posts: PostType[], count: number }> => {
+    // const data = await axios({ method: 'get', url: `http://localhost:3000/api/categories` })
+    // console.log(data)
+    const res: Response = await fetch(`${BASE_URL}/api/posts?page=${page}`, {
+        cache: 'no-store'
+    })
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch categories");
+    }
+
+    return await res.json();
+}

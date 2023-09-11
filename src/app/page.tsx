@@ -4,15 +4,18 @@ import CategoryList from "@/components/categoryList/CategoryList";
 import CardList from "@/components/cardList/CardList";
 import Menu from "@/components/menu/Menu";
 
-export default function Home() {
+const Home: React.FC<HomePageProps> = ({ searchParams }) => {
+  const page = parseInt(searchParams.page as string) || 1
+
   return (
     <div className={styles.container}>
       <Featured />
       <CategoryList />
       <div className={styles.content}>
-        <CardList />
+        <CardList page={page} />
         <Menu />
       </div>
     </div>
   );
 }
+export default Home

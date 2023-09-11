@@ -1,3 +1,5 @@
+export const POST_PER_PAGE = 2
+
 export const categoryMenuBg: {
     [key: string]: string,
     style: string,
