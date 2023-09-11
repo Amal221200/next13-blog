@@ -17,11 +17,12 @@ interface HomePageProps extends ServerComponentsProps {
 
 }
 
-interface CardList {
+interface CardListProps {
     page: number
 }
-interface Pagination {
-    page: number
+interface PaginationProps{
+    hasNext: boolean,
+    hasPrev: boolean,
 }
 
 interface CategoryType {

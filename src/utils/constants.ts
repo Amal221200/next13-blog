@@ -1,4 +1,5 @@
 export const POST_PER_PAGE = 2
+
 interface categoryLists {
     [key: string]: string,
     style: string,
@@ -18,6 +19,7 @@ interface FooterLinkType {
     name: string,
     links: LinkType[]
 }
+
 export const categoryMenuBg: categoryLists = {
     style: "#57c4ff31",
     fashion: "#ff7887",
