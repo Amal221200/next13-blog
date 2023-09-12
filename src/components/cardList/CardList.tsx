@@ -5,10 +5,10 @@ import Pagination from "../pagination/Pagination";
 import React from "react";
 import { POST_PER_PAGE } from "@/utils/constants";
 
-const CardList: React.FC<CardListProps> = async ({ page }) => {
-  const { posts, count } = await getPosts(page)
-  const hasPrev = (POST_PER_PAGE * (page as number - 1)) > 0
-  const hasNext = (POST_PER_PAGE * (page as number)) < count
+const CardList: React.FC<CardListProps> = async ({ page, category }) => {
+  const { posts, count } = await getPosts(page, category)
+  const hasPrev = (POST_PER_PAGE * (page - 1)) > 0
+  const hasNext = (POST_PER_PAGE * page) < count
 
   return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ const CardList: React.FC<CardListProps> = async ({ page }) => {
           <Card key={post.id} post={post} />
         ))}
       </div>
-      <Pagination hasNext={hasNext} hasPrev={hasPrev} page={page as number} />
+      <Pagination hasNext={hasNext} hasPrev={hasPrev} page={page} />
     </div>
   )
 }

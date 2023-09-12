@@ -6,7 +6,7 @@ import { categoryListBg } from "../../utils/constants";
 
 const CategoryList = async () => {
   const categories: CategoryType[] = await getCategories()
-
+  // console.log(categories)
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Popular Categories</h1>

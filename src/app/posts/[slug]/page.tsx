@@ -3,7 +3,7 @@ import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 
-export default function SinglePage() {
+const SinglePage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
@@ -66,3 +66,5 @@ export default function SinglePage() {
         </div>
     );
 }
+
+export default SinglePage;

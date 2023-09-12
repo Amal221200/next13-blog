@@ -13,14 +13,18 @@ interface ServerComponentsProps {
 }
 
 interface HomePageProps extends ServerComponentsProps {
-    searchParams: { page: string , category: string }
+    searchParams: { page: string, category: string }
+}
+
+interface BlogPageProps extends HomePageProps {
 
 }
 
 interface CardListProps {
-    page?: number
+    page: number,
+    category?: string
 }
-interface PaginationProps{
+interface PaginationProps {
     page: number,
     hasNext: boolean,
     hasPrev: boolean,
