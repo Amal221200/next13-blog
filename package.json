@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
     "generate": "npx prisma generate",
-    "build": "next build && generate",
     "start": "next start",
+    "prod": "yarn build && yarn generate",
     "lint": "next lint"
   },
   "dependencies": {

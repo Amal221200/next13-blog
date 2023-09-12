@@ -2,8 +2,9 @@ import Menu from "@/components/menu/Menu";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
+import React from "react";
 
-const SinglePage = () => {
+const SinglePage : React.FC<ServerComponentsProps> = () => {
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
