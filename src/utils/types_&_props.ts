@@ -18,9 +18,10 @@ interface HomePageProps extends ServerComponentsProps {
 }
 
 interface CardListProps {
-    page: number
+    page?: number
 }
 interface PaginationProps{
+    page: number,
     hasNext: boolean,
     hasPrev: boolean,
 }
