@@ -26,9 +26,6 @@ export default function LoginPage() {
                 <button type="button" className={styles.socialButton} onClick={() => signIn("github")}>
                     Sign in with GitHub
                 </button>
-                <button type="button" className={styles.socialButton} onClick={() => signIn("facebook")}>
-                    Sign in with Facebook
-                </button>
             </div>
         </div>
     )
