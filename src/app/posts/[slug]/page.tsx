@@ -4,7 +4,8 @@ import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 import React from "react";
 
-const SinglePage : React.FC<ServerComponentsProps> = () => {
+const SinglePage: React.FC<ServerComponentsProps> = ({ params }) => {
+    
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
