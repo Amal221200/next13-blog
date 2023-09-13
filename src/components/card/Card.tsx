@@ -1,15 +1,14 @@
 import Link from "next/link";
 import styles from "./card.module.css";
 import Image from "next/image";
+import { formatDate } from "@/utils/constants";
 
 interface CardProps {
     post: PostType
 }
 
 const Card: React.FC<CardProps> = ({ post }) => {
-    const formatter = new Intl.DateTimeFormat("en-UK", {})
-    const date = formatter.format(new Date(post.createdAt)).replaceAll('/', '.')
-    
+
     return (
         <div className={styles.container}>
             <div className={styles.imgContainer}>
@@ -17,7 +16,7 @@ const Card: React.FC<CardProps> = ({ post }) => {
             </div>
             <div className={styles.textContainer}>
                 <div className={styles.detail}>
-                    <span className={styles.date}>{date} - </span>
+                    <span className={styles.date}>{formatDate(post.createdAt)} - </span>
                     <span className={styles.category}>{post.catSlug.toUpperCase()}</span>
                 </div>
                 <Link href={`/posts/${post.slug}`}>

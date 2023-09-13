@@ -1,24 +1,24 @@
 import Link from "next/link";
 import styles from "./comments.module.css";
 import Image from "next/image";
+import { formatDate } from "@/utils/constants";
 
-const Comment = () => {
+const Comment: React.FC<CommentProps> = ({ comment }) => {
     return (
         <div className={styles.comment}>
             <div className={styles.user}>
-                <Image src="/p1.jpeg" width={50} height={50} alt="user" className={styles.image} />
+               {comment.user?.image && <Image src={comment.user.image} width={50} height={50} alt="user" className={styles.image} />}
                 <div className={styles.userInfo}>
-
-                    <span>Bettie Allen</span>
-                    <span className={styles.date}>12.02.2023</span>
+                    <span>{comment.user?.name}</span>
+                    <span className={styles.date}>{formatDate(comment.createdAt)}</span>
                 </div>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sed odit iusto dolorum eum suscipit perspiciatis neque debitis ipsa aut enim, consequuntur temporibus ipsum nihil, exercitationem dolores quasi magnam. Perspiciatis.</p>
+            <p className={styles.body}>{comment.desc}</p>
         </div>
     )
 }
 
-const Comments = () => {
+const Comments: React.FC<CommentsProps> = ({ comments }) => {
     const status = 'authenticated'
     return (
         <div className={styles.container}>
@@ -37,8 +37,8 @@ const Comments = () => {
 
             <div className={styles.comments}>
                 {
-                    [1, 2, 3, 4, 5].map((elem) => (
-                        <Comment key={elem} />
+                    comments.map((comment) => (
+                        <Comment key={comment.id} comment={comment} />
                     ))
                 }
             </div>

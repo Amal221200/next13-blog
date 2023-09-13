@@ -67,3 +67,9 @@ export const FooterLinks: FooterLinkType[] = [
         ]
     }
 ]
+
+export const formatDate = (date: string) => {
+    const formatter = new Intl.DateTimeFormat('en-UK')
+    const newDate = formatter.format(new Date(date))
+    return newDate.replaceAll('/', '.')
+}

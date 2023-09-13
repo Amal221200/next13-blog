@@ -13,7 +13,7 @@ export const getCategories = async (): Promise<CategoryType[]> => {
     return await res.json();
 }
 
-export const getPost = async (slug: string): Promise<PostType> => {
+export const getPost = async (slug: string): Promise<SinglePostType> => {
     const res: Response = await fetch(`${BASE_URL}/api/posts/${slug}`, {
         cache: 'no-store'
     })

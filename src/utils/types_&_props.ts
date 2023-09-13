@@ -1,3 +1,4 @@
+
 interface ThemeContextType {
     theme: string,
     toggleTheme: () => void
@@ -30,6 +31,17 @@ interface PaginationProps {
     hasPrev: boolean,
 }
 
+interface CommentsProps {
+    comments: CommentType[]
+}
+
+interface CommentProps {
+    comment: CommentType
+}
+interface SingleCommentProps {
+    comment: SingleCommentType
+}
+
 interface CategoryType {
     title: string,
     id: string,
@@ -43,11 +55,17 @@ interface PostType {
     slug: string,
     title: string,
     desc: string,
+    body: string,
     img?: string,
     views: number,
     catSlug: string,
     userEmail: string,
-    createdAt: string
+    createdAt: string,
+}
+
+interface SinglePostType extends PostType {
+    user: UserType,
+    comments: CommentType[]
 }
 
 interface UserType {
@@ -62,8 +80,13 @@ interface UserType {
 
 interface CommentType {
     id: string,
-    views: number,
+    createdAt: string,
+    desc: string,
     userEmail: string,
     postSlug: string,
-    createdAt: string
+    user?: UserType
+}
+
+interface SingleCommentType extends CommentType{
+    user: UserType
 }

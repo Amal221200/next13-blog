@@ -62,3 +62,7 @@
     font-size: 14px;
 }
 
+.body {
+    margin-top: 15px;
+    margin-inline-start: 15px;
+}
